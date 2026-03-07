@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Reading Journal</title>
+    <link href="./Assets/CSS/form.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+
+    <h1>Book Journal Form</h1>
+    
+    <form id="readingForm">
+        <label>Book Title:</label>
+        <input type="text" id="title" placeholder="What are you reading?">
+        
+        <label>Chapter/Page:</label>
+        <input type="text" id="progress" placeholder="Where did the timer stop?">
+        
+        <label>Thoughts:</label>
+        <textarea id="thoughts" rows="4"></textarea>
+
+        <label>Rating:</label>
+<select id="rating" style="font-size: 24px; margin-bottom: 20px; display: block; width: 100%;">
+    <option value="⭐⭐⭐⭐⭐">5 Stars - Amazing!</option>
+    <option value="⭐⭐⭐⭐">4 Stars - Really Good</option>
+    <option value="⭐⭐⭐">3 Stars - It was Okay</option>
+    <option value="⭐⭐">2 Stars - Didn't like it</option>
+    <option value="⭐">1 Star - Hard to finish</option>
+</select>
+        <label>Access Key:</label>
+<input type="password" id="accessKey" placeholder="Enter key to enable button" style="border: 2px solid #333;">
+
+<button type="button" id="submitBtn" onclick="addEntry()" disabled style="opacity: 0.5; cursor: not-allowed;">
+    Add to Journal (Locked)
+</button>
+    
+    </form>
+
+    <h2>Previous Entries</h2>
+    <div id="entryList">
+        </div>
+
+    <script>
+        function checkPass() {
+    const typed = document.getElementById('passInput').value;
+    // This is your scrambled password
+    const secret = atob("QWxleC5TNTk4MzQ="); 
+
+    if (typed === secret) {
+        document.getElementById('passwordOverlay').style.display = "none";
+        playAudio(660);
+    } else {
+        alert("Access Denied");
+        playAudio(110);
+    }
+}
+    // LOAD ENTRIES
+    window.onload = function() {
+        renderEntries();
+    };
+
+    function addEntry() {
+        const title = document.getElementById('title').value;
+        const progress = document.getElementById('progress').value;
+        const thoughts = document.getElementById('thoughts').value;
+
+        if (!title) return; // Don't save empty entries
+
+        const entry = {
+            id: Date.now(), // Unique ID based on time
+            title: title,
+            progress: progress,
+            thoughts: thoughts,
+            date: new Date().toLocaleDateString()
+        };
+
+        const entries = JSON.parse(localStorage.getItem('myReadingJournal')) || [];
+        entries.push(entry);
+        localStorage.setItem('myReadingJournal', JSON.stringify(entries));
+
+        renderEntries();
+        playAudio(440); // Higher beep for success
+        document.getElementById('readingForm').reset();
+    }
+
+    function deleteEntry(id) {
+        let entries = JSON.parse(localStorage.getItem('myReadingJournal')) || [];
+        // Filter out the one with the matching ID
+        entries = entries.filter(entry => entry.id !== id);
+        localStorage.setItem('myReadingJournal', JSON.stringify(entries));
+        
+        renderEntries();
+        playAudio(220); // Lower beep for deletion
+    }
+
+    function renderEntries() {
+        const entryList = document.getElementById('entryList');
+        const entries = JSON.parse(localStorage.getItem('myReadingJournal')) || [];
+        
+        // Clear the current list before re-drawing
+        entryList.innerHTML = '';
+
+        entries.forEach(entry => {
+            const entryHTML = `
+                <div class="journal-entry">
+                    <span style="font-size: 0.8em; color: #666;">${entry.date}</span><br>
+                    <strong>${entry.title}</strong><br>
+                    <small>Progress: ${entry.progress}</small>
+                    <p>${entry.thoughts}</p>
+                    <button class="delete-btn" onclick="deleteEntry(${entry.id})">Delete This Entry</button>
+                </div>
+            `;
+            entryList.innerHTML += entryHTML;
+        });
+    }
+
+    function playAudio(frequency) {
+        const context = new (window.AudioContext || window.webkitAudioContext)();
+        const oscillator = context.createOscillator();
+        oscillator.type = 'sine';
+        oscillator.frequency.setValueAtTime(frequency, context.currentTime);
+        oscillator.connect(context.destination);
+        oscillator.start();
+        oscillator.stop(context.currentTime + 0.1);
+    }
+
+document.getElementById('accessKey').addEventListener('input', function() {
+    const secret = "Alex.S59834";
+    const submitBtn = document.getElementById('submitBtn');
+
+    if (this.value === secret) {
+        submitBtn.disabled = false;
+        submitBtn.style.opacity = "1";
+        submitBtn.style.cursor = "pointer";
+        submitBtn.innerText = "Add to Journal (Unlocked)";
+        playAudio(660); // Happy beep when it unlocks!
+    } else {
+        submitBtn.disabled = true;
+        submitBtn.style.opacity = "0.5";
+        submitBtn.innerText = "Add to Journal (Locked)";
+    }
+});
+</script>
+
+</body>
+</html>

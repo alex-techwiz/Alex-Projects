@@ -1,0 +1,51 @@
+ body {
+            font-family: Arial, sans-serif;
+            font-size: 24px; /* Large Print */
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            padding: 40px;
+        }
+
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #333;
+            max-width: 600px;
+            margin-bottom: 50px;
+        }
+
+        input, textarea {
+            width: 100%;
+            font-size: 20px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        button {
+            background-color: #2e7d32; /* Relaxing Green */
+            color: white;
+            padding: 15px 30px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .journal-entry {
+            background: #fff;
+            border-left: 10px solid #2196F3; /* Visual cue for entries */
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+        }
+        #passInput {
+    background-color: transparent;
+    border: 1px solid transparent;
+    color: transparent; /* Makes the dots you type invisible too */
+    transition: all 0.3s;
+}
+
+#passInput:focus, #passInput:hover {
+    border: 1px solid #333;
+    color: #000; /* Text appears when you are actually typing */
+    background-color: #fff;
+}
