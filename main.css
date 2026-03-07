@@ -1,0 +1,158 @@
+body {
+    background-color: #f0f2f5; /* Soft grey to reduce glare */
+    color: #1a1a1a;
+    font-family: 'Verdana', sans-serif; /* High legibility font */
+    font-size: 22px;
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border: 2px solid #333;
+}
+
+h1, h2 {
+    color: #2e7d32; /* Relaxing green */
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+/* Button Styling */
+.hub-button, .submit-btn {
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 25px;
+    background-color: #2e7d32;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 1.5rem;
+    transition: transform 0.2s, background-color 0.2s;
+    border: none;
+}
+
+.hub-button:hover {
+    background-color: #1b5e20;
+    transform: scale(1.02);
+}
+
+/* Form Styles */
+input, select, textarea {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0 25px 0;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    box-sizing: border-box; /* Keeps padding from breaking width */
+}
+
+input:focus {
+    border-color: #2e7d32;
+    outline: none;
+    background-color: #fffde7; /* Slight yellow tint to show focus */
+}
+
+/* Entry Cards */
+.journal-entry {
+    background: #fff;
+    border-left: 15px solid #2e7d32;
+    padding: 25px;
+    margin-bottom: 30px;
+    border-top: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-radius: 0 10px 10px 0;
+}
+
+/* Hidden Password Input */
+#accessKey {
+    color: transparent;
+    background-color: #eee;
+}
+
+#accessKey:focus {
+    color: #333;
+}
+/* style.css */
+:root {
+    --primary-green: #2e7d32;
+    --bg-color: #f4f4f4;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: #1a1a1a;
+    font-family: 'Verdana', sans-serif;
+    font-size: 20px; /* Base size for mobile */
+    margin: 0;
+    padding: 10px;
+    line-height: 1.5;
+}
+
+/* Container that adapts to screen size */
+.container {
+    width: 95%;
+    max-width: 800px;
+    margin: 10px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+}
+
+/* Large font for Desktop (HP Laptop) */
+@media (min-width: 768px) {
+    body { font-size: 24px; padding: 40px; }
+    .container { padding: 40px; }
+}
+
+/* Form Styling */
+input, textarea, select {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0 20px 0;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    box-sizing: border-box; /* Crucial for mobile sizing */
+}
+
+/* Big buttons for thumbs on phones */
+.hub-button, .submit-btn, .delete-btn {
+    display: block;
+    width: 100%;
+    padding: 20px;
+    background-color: var(--primary-green);
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 1.3rem;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+/* Entry Cards: Stack content vertically for mobile */
+.journal-entry {
+    background: #fff;
+    border-left: 8px solid var(--primary-green);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
