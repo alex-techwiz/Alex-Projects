@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>My Reading Journal</title>
     <link href="./Assets/CSS/form.css" type="text/css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
@@ -139,6 +140,7 @@
             historySection.style.display = "none"; // Hide Previous Entries
         }
     });
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
 </script>
 
 </body>

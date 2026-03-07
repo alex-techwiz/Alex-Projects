@@ -1,87 +1,71 @@
+/* Assets/CSS/form.css */
+
+/* 1. Global Reset - Prevents horizontal scrolling on phones */
+* {
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
 body {
-    background-color: #f0f2f5; /* Soft grey to reduce glare */
+    background-color: #f0f2f5;
     color: #1a1a1a;
-    font-family: 'Verdana', sans-serif; /* High legibility font */
-    font-size: 22px;
+    font-family: 'Verdana', sans-serif;
+    font-size: 20px; /* Big for Astigmatism */
     margin: 0;
-    padding: 20px;
-    line-height: 1.6;
+    padding: 15px;
+    line-height: 1.4;
 }
 
-.container {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 30px;
+/* 2. Container - High Contrast & Centered */
+.container, #readingForm, #historySection {
+    width: 100%;
+    max-width: 700px; /* Keeps it from getting too wide on HP laptop */
+    margin: 0 auto 20px auto;
     background: #ffffff;
-    border-radius: 20px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    padding: 20px;
     border: 2px solid #333;
+    border-radius: 12px;
 }
 
-h1, h2 {
-    color: #2e7d32; /* Relaxing green */
-    font-size: 2.5rem;
-    text-align: center;
-}
-
-/* Button Styling */
-.hub-button, .submit-btn {
+/* 3. Inputs - Full Width for fingers/mice */
+input, textarea, select {
     display: block;
     width: 100%;
-    max-width: 400px;
-    margin: 20px auto;
-    padding: 25px;
-    background-color: #2e7d32;
-    color: white;
-    text-decoration: none;
-    text-align: center;
-    border-radius: 12px;
-    font-weight: bold;
-    font-size: 1.5rem;
-    transition: transform 0.2s, background-color 0.2s;
-    border: none;
-}
-
-.hub-button:hover {
-    background-color: #1b5e20;
-    transform: scale(1.02);
-}
-
-/* Form Styles */
-input, select, textarea {
-    width: 100%;
-    padding: 15px;
+    padding: 18px;
     margin: 10px 0 25px 0;
     border: 2px solid #ccc;
     border-radius: 8px;
     font-size: 1.2rem;
-    box-sizing: border-box; /* Keeps padding from breaking width */
+    -webkit-appearance: none; /* Fixes weird iPhone styling on buttons/selects */
 }
 
-input:focus {
-    border-color: #2e7d32;
-    outline: none;
-    background-color: #fffde7; /* Slight yellow tint to show focus */
+/* 4. Buttons - Massive 'Tap Targets' for Moto Z4 */
+button {
+    width: 100%;
+    padding: 22px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 15px;
+    transition: transform 0.1s;
 }
 
-/* Entry Cards */
-.journal-entry {
-    background: #fff;
-    border-left: 15px solid #2e7d32;
-    padding: 25px;
-    margin-bottom: 30px;
-    border-top: 1px solid #ddd;
-    border-right: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
-    border-radius: 0 10px 10px 0;
+button:active {
+    transform: scale(0.98); /* Visual feedback when tapped */
 }
 
-/* Hidden Password Input */
-#accessKey {
-    color: transparent;
-    background-color: #eee;
+#submitBtn {
+    background-color: #2e7d32;
+    color: white;
 }
 
-#accessKey:focus {
-    color: #333;
+/* 5. Mobile Adjustments */
+@media screen and (max-width: 600px) {
+    body {
+        padding: 10px;
+        font-size: 18px;
+    }
+    h1 { font-size: 1.5rem; }
 }
