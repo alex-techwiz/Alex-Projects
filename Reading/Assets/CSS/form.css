@@ -69,3 +69,47 @@ button:active {
     }
     h1 { font-size: 1.5rem; }
 }
+/* Container for the radio buttons */
+.format-selector {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 15px 0 25px 0;
+}
+
+/* The actual "Button" look */
+.format-option {
+    display: block;
+    cursor: pointer;
+    background: #eee;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #ccc;
+    text-align: center;
+    font-size: 22px;
+    transition: all 0.2s ease;
+}
+
+/* Hide the tiny radio circle */
+.format-option input[type="radio"] {
+    display: none;
+}
+
+/* What happens when you select one */
+.format-option:has(input:checked) {
+    background-color: #2e7d32; /* Success Green */
+    color: white;
+    border-color: #1b5e20;
+    transform: scale(1.02);
+}
+
+/* Tablet/Desktop layout (MacBook/HP Laptop) */
+@media (min-width: 600px) {
+    .format-selector {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .format-option {
+        flex: 1 1 45%; /* Two buttons per row */
+    }
+}
