@@ -1,71 +1,75 @@
-/* Assets/CSS/form.css */
-
-/* 1. Global Reset - Prevents horizontal scrolling on phones */
-* {
-    box-sizing: border-box;
-    max-width: 100%;
-}
-
-body {
-    background-color: #f0f2f5;
-    color: #1a1a1a;
-    font-family: 'Verdana', sans-serif;
-    font-size: 20px; /* Big for Astigmatism */
-    margin: 0;
-    padding: 15px;
-    line-height: 1.4;
-}
-
-/* 2. Container - High Contrast & Centered */
-.container, #readingForm, #historySection {
-    width: 100%;
-    max-width: 700px; /* Keeps it from getting too wide on HP laptop */
-    margin: 0 auto 20px auto;
-    background: #ffffff;
+/* Home Page Specific Styling */
+.home-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
     padding: 20px;
-    border: 2px solid #333;
-    border-radius: 12px;
 }
 
-/* 3. Inputs - Full Width for fingers/mice */
-input, textarea, select {
-    display: block;
+.hub-container {
     width: 100%;
-    padding: 18px;
-    margin: 10px 0 25px 0;
-    border: 2px solid #ccc;
-    border-radius: 8px;
+    max-width: 1000px;
+    text-align: center;
+}
+
+.subtitle {
     font-size: 1.2rem;
-    -webkit-appearance: none; /* Fixes weird iPhone styling on buttons/selects */
+    color: #666;
+    margin-bottom: 40px;
 }
 
-/* 4. Buttons - Massive 'Tap Targets' for Moto Z4 */
-button {
-    width: 100%;
-    padding: 22px;
-    font-size: 1.4rem;
-    font-weight: bold;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
+.hub-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.hub-tile {
+    background: white;
+    padding: 40px 20px;
+    border: 3px solid #333;
+    border-radius: 20px;
+    text-decoration: none;
+    color: #1a1a1a;
+    transition: transform 0.2s, background-color 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hub-tile .icon {
+    font-size: 4rem;
     margin-bottom: 15px;
-    transition: transform 0.1s;
 }
 
-button:active {
-    transform: scale(0.98); /* Visual feedback when tapped */
+.hub-tile .label {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #2e7d32;
 }
 
-#submitBtn {
-    background-color: #2e7d32;
-    color: white;
+.hub-tile .description {
+    font-size: 1rem;
+    color: #777;
+    margin-top: 10px;
 }
 
-/* 5. Mobile Adjustments */
-@media screen and (max-width: 600px) {
-    body {
-        padding: 10px;
-        font-size: 18px;
+.hub-tile:hover {
+    transform: scale(1.05);
+    background-color: #f0fff0;
+}
+
+.hub-tile.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    border-style: dashed;
+}
+
+/* Mobile Tweak */
+@media (max-width: 600px) {
+    .hub-tile {
+        padding: 30px 15px;
     }
-    h1 { font-size: 1.5rem; }
+    .hub-tile .icon { font-size: 3rem; }
 }
