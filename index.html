@@ -3,26 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alex's Hub</title>
-    <link href="./Assets/CSS/form.css" rel="stylesheet">
+    <title>Alex's Personal Hub</title>
+    <link rel="stylesheet" href="./assets/css/main.css">
 </head>
-<body>
+<body class="home-body">
+    <div class="hub-container">
+        <header>
+            <h1>Alex's Digital Hub</h1>
+            <p class="subtitle">Bartonville Server & Library Tracker</p>
+        </header>
 
-    <div class="container" style="text-align: center; margin-top: 50px;">
-        <h1>Personal Portal</h1>
-        <p>Bartonville Media Server & Reading Logs</p>
+        <nav class="hub-grid">
+            <a href="./Reading/Journal.html" class="hub-tile">
+                <span class="icon">📖</span>
+                <span class="label">Reading Journal</span>
+                <span class="description">Log Books, CDs, & Playaways</span>
+            </a>
 
-        <a href="./Reading/Journal.html" style="text-decoration: none;">
-            <button type="button" class="hub-button">
-                📖 Open Reading Journal
-            </button>
-        </a>
-        
-        <a href="https://alex-techwiz.github.io/my-website/" style="text-decoration: none;">
-            <button type="button" class="hub-button">
-            💻 School Projects
-        </button>
+            <a href="https://alex-techwiz.github.io/my-website/" class="hub-tile">
+                <span class="icon">💻</span>
+                <span class="label">ICC Projects</span>
+                <span class="description">Web Dev & AI Coursework</span>
+            </a>
+        </nav>
+
+        <footer>
+            <p>Connected via Tailscale Port 711</p>
+        </footer>
     </div>
-
 </body>
 </html>
