@@ -1,4 +1,5 @@
-/* General Layout */
+* { box-sizing: border-box; }
+
 body { 
     background-color: #1a1a1a; 
     color: #e0e0e0; 
@@ -8,73 +9,64 @@ body {
 }
 
 .controls { 
-    margin-bottom: 20px; 
     display: flex; 
-    flex-direction: column; /* Stack buttons on mobile */
+    flex-direction: column; 
     gap: 10px; 
     background: #262626; 
     padding: 15px; 
-    border-radius: 8px; 
+    border-radius: 8px;
+    margin-bottom: 20px;
 }
 
 button { 
     background: #ffd700; 
     border: none; 
-    padding: 12px 15px; 
+    padding: 15px; 
     font-weight: bold; 
     cursor: pointer; 
-    border-radius: 4px; 
-    font-size: 16px;
+    border-radius: 5px;
 }
 
-/* List View (Mobile First) */
+/* List View */
 .book-card { 
     background: #2d2d2d; 
     border-left: 8px solid #ffd700; 
     padding: 15px; 
     margin-bottom: 10px; 
-    display: flex; 
-    flex-direction: column; /* Stack date/title on mobile */
-    align-items: flex-start; 
+    display: flex;
+    justify-content: space-between;
 }
 
-.date { color: #ffd700; font-weight: bold; font-size: 1.2rem; }
-.title { margin-top: 8px; font-size: 1.1rem; }
-
-/* Grid View (Desktop Only) */
+/* Grid View Desktop (Default) */
 .calendar-grid { 
     display: grid; 
     grid-template-columns: repeat(7, 1fr); 
     gap: 2px; 
     background: #444; 
-    border: 2px solid #444; 
 }
 
-/* MOBILE OVERRIDE */
-@media (max-width: 768px) {
-    /* Turn the 7-day grid into a vertical scroll for phones */
-    .calendar-grid { 
-        grid-template-columns: 1fr; 
-    }
-    
-    .calendar-day { 
-        min-height: auto; 
-        padding: 10px; 
-        border-bottom: 1px solid #444;
-    }
-
-    .weekday-header { display: none; } /* Hide Sun-Sat headers on mobile list */
-    
-    .controls { flex-direction: column; }
-    
-    .book-card { 
-        padding: 20px;
-    }
+.calendar-day { 
+    background: #262626; 
+    min-height: 110px; 
+    padding: 5px; 
 }
 
-/* DESKTOP ADJUSTMENTS */
-@media (min-width: 769px) {
-    .controls { flex-direction: row; }
-    .book-card { flex-direction: row; justify-content: space-between; }
-    .title { margin-top: 0; margin-left: 20px; }
+.grid-book-item { 
+    background: #ffd700; 
+    color: #000; 
+    font-size: 0.7rem; 
+    padding: 2px; 
+    margin-top: 2px; 
+    border-radius: 2px;
+}
+
+.weekday-header { background: #333; text-align: center; color: #ffd700; padding: 10px; font-weight: bold; }
+.calendar-nav-header { display: flex; justify-content: space-between; align-items: center; background: #333; padding: 10px; }
+
+/* MOBILE RESPONSIVENESS */
+@media (max-width: 600px) {
+    .calendar-grid { grid-template-columns: 1fr; } /* Stack days vertically */
+    .weekday-header { display: none; }
+    .book-card { flex-direction: column; align-items: flex-start; }
+    .calendar-day { min-height: auto; border-bottom: 1px solid #444; padding: 15px; }
 }
