@@ -1,0 +1,16 @@
+body { background-color: #1a1a1a; color: #e0e0e0; font-family: sans-serif; padding: 20px; }
+.controls { margin-bottom: 20px; display: flex; gap: 10px; background: #262626; padding: 15px; border-radius: 8px; }
+button { background: #ffd700; border: none; padding: 10px 15px; font-weight: bold; cursor: pointer; border-radius: 4px; }
+
+/* List View */
+.book-card { background: #2d2d2d; border-left: 8px solid #ffd700; padding: 15px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; }
+.date { color: #ffd700; font-weight: bold; font-size: 1.2rem; }
+.renewal-count { display: block; font-size: 0.8rem; color: #81a1c1; margin-top: 4px; }
+
+/* Grid View */
+.calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; background: #444; border: 2px solid #444; }
+.calendar-day { background: #262626; min-height: 100px; padding: 5px; position: relative; }
+.day-number { font-weight: bold; color: #777; }
+.grid-book-item { background: #ffd700; color: #000; font-size: 0.7rem; padding: 2px; margin-top: 2px; border-radius: 2px; overflow: hidden; }
+.weekday-header { background: #333; text-align: center; color: #ffd700; padding: 10px 0; font-weight: bold; }
+.calendar-nav-header { display: flex; justify-content: space-between; align-items: center; background: #333; padding: 10px; }
