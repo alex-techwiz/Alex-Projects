@@ -82,54 +82,50 @@
         <label>Book Title:</label>
         <input type="text" id="title" placeholder="What are you reading?">
 
-        <label style="font-size: 1.2rem; margin-top: 25px;">Select Format:</label>
-        <div class="format-selector">
-            <label class="format-option">
-                <input type="radio" name="format" value="Large Print" onclick="toggleFields()">
-                <span>📖 Large Print</span>
-            </label>
-            <label class="format-option">
-                <input type="radio" name="format" value="KOReader" onclick="toggleFields()">
-                <span>📱 KOReader</span>
-            </label>
-            <label class="format-option">
-                <input type="radio" name="format" value="Audiobook CD" onclick="toggleFields()">
-                <span>💿 CD (KLIM)</span>
-            </label>
-            <label class="format-option">
-                <input type="radio" name="format" value="Playaway HD Light" onclick="toggleFields()">
-                <span>🔦 PW HD Light</span>
-            </label>
-            <label class="format-option">
-                <input type="radio" name="format" value="Playaway HD" onclick="toggleFields()">
-                <span>📟 PW HD</span>
-            </label>
-            <label class="format-option">
-                <input type="radio" name="format" value="Audiobookshelf" onclick="toggleFields()">
-                <span>☁️ ABS Server</span>
-            </label>
-            <label class="format-option" style="grid-column: span 2;">
-                <input type="radio" name="format" value="Both" onclick="toggleFields()">
-                <span>📚 Mixed/Both</span>
-            </label>
-        </div>
+       <label style="font-size: 1.2rem; margin-top: 25px;">Select Format (Select all that apply):</label>
+<div class="format-selector">
+    <label class="format-option">
+        <input type="checkbox" name="format" value="Large Print" onchange="toggleFields()">
+        <span>📖 Large Print</span>
+    </label>
+    <label class="format-option">
+        <input type="checkbox" name="format" value="KOReader" onchange="toggleFields()">
+        <span>📱 KOReader</span>
+    </label>
+    <label class="format-option">
+        <input type="checkbox" name="format" value="Audiobook CD" onchange="toggleFields()">
+        <span>💿 CD (KLIM)</span>
+    </label>
+    <label class="format-option">
+        <input type="checkbox" name="format" value="Playaway HD Light" onchange="toggleFields()">
+        <span>🔦 PW HD Light</span>
+    </label>
+    <label class="format-option">
+        <input type="checkbox" name="format" value="Playaway HD" onchange="toggleFields()">
+        <span>📟 PW HD</span>
+    </label>
+    <label class="format-option">
+        <input type="checkbox" name="format" value="Audiobookshelf" onchange="toggleFields()">
+        <span>☁️ ABS Server</span>
+    </label>
+</div>
 
-        <div id="bookFields" style="display:none; border: 2px dashed #2e7d32; padding: 15px; border-radius: 12px; margin: 15px 0;">
-            <label>Current Page:</label>
-            <input type="number" id="pageNumber" placeholder="e.g. 145">
-        </div>
+<div id="bookFields" style="display:none; border: 2px dashed #2e7d32; padding: 15px; border-radius: 12px; margin: 15px 0;">
+    <label>Current Page:</label>
+    <input type="number" id="pageNumber" placeholder="e.g. 145">
+</div>
 
-        <div id="audioFields" style="display:none; border: 2px dashed #0277bd; padding: 15px; border-radius: 12px; margin: 15px 0;">
-            <label id="audioLabel">Position:</label>
-            <div style="display: flex; gap: 10px; margin-top: 5px;">
-                <div id="discContainer" style="width: 35%;">
-                    <input type="text" id="discNum" placeholder="Disc #">
-                </div>
-                <div style="flex-grow: 1;">
-                    <input type="text" id="trackNum" placeholder="Track / Time">
-                </div>
-            </div>
+<div id="audioFields" style="display:none; border: 2px dashed #0277bd; padding: 15px; border-radius: 12px; margin: 15px 0;">
+    <label id="audioLabel">Audio Progress:</label>
+    <div style="display: flex; gap: 10px; margin-top: 5px;">
+        <div id="discContainer" style="width: 35%;">
+            <input type="text" id="discNum" placeholder="Disc #">
         </div>
+        <div style="flex-grow: 1;">
+            <input type="text" id="trackNum" placeholder="Track / Time">
+        </div>
+    </div>
+</div>
 
         <label>Thoughts & Notes:</label>
         <textarea id="thoughts" rows="4" placeholder="Your takeaways..."></textarea>
