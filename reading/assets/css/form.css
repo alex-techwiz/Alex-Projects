@@ -1,0 +1,54 @@
+/* --- FORMAT SELECTOR: Unified & High Contrast --- */
+.format-selector {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.format-option {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    border: 3px solid #333;
+    border-radius: 12px;
+    background: #fff;
+    cursor: pointer;
+    font-size: 22px;
+    font-weight: bold;
+    transition: transform 0.1s;
+    box-shadow: 4px 4px 0px #333; /* Thick shadow for clear edges */
+}
+
+/* Make the checkbox large and clickable */
+.format-option input[type="checkbox"] {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    accent-color: #2e7d32; /* Strong Green */
+}
+
+/* High-contrast state when checked */
+.format-option:has(input:checked) {
+    background-color: #dcedc8; /* Solid, readable light green */
+    border-color: #2e7d32;
+    transform: translate(2px, 2px); /* Physical "pressed" feel */
+    box-shadow: 2px 2px 0px #333;
+}
+
+/* Hover effect */
+.format-option:hover {
+    background-color: #f9f9f9;
+}
+
+/* Tablet/Desktop layout */
+@media (min-width: 600px) {
+    .format-selector {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .format-option {
+        flex: 1 1 45%; /* Two buttons per row */
+    }
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex's Challenge Hub</title>
+      <link href="./assets/css/form.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+    <div id="lockScreen">
+        <div class="lock-box">
+            <h1>🔒 LOCKED</h1>
+            <input type="password" id="accessKey" placeholder="Enter Key">
+        </div>
+    </div>
+
+    <div id="mainContent" class="hidden">
+        <header style="text-align: center; margin-bottom: 30px;">
+            <h1>CHALLENGE HUB</h1>
+            <button onclick="window.showNewChallengeForm()" class="hub-button" style="background:#2e7d32; color:white;">+ START NEW GOAL</button>
+        </header>
+
+        <div id="newChallengeForm" class="hidden" style="border: 3px solid #333; padding: 20px; border-radius: 15px; background: white; margin-bottom: 20px;">
+            <h3>Goal Name:</h3>
+            <input type="text" id="newChallengeName" placeholder="e.g. Couch to 5K">
+            <button onclick="window.createNewChallenge()" class="hub-button" style="background:#0277bd; color:white;">LAUNCH</button>
+        </div>
+
+        <div id="challengeGrid"></div>
+        <div id="loggingArea" class="hidden"></div>
+
+        <div class="sync-tray">
+            <h3>💻 Device Sync</h3>
+            <button onclick="window.exportData()" class="hub-button" style="background:#333; color:white;">💾 EXPORT BACKUP</button>
+            <label class="hub-button" style="background:white; display:block; text-align:center;">
+                📂 IMPORT BACKUP
+                <input type="file" id="importFile" class="hidden" onchange="window.importData(event)">
+            </label>
+        </div>
+    </div>
+</div>
+
+<script src="./assets/js/challenge.js"></script>
+</body>
+</html>
